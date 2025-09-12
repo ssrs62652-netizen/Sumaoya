@@ -34,7 +34,6 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
   
    if ((event.body.toLowerCase() == "ki") || (event.body.toLowerCase() == "re")) {
      return api.sendMessage("simsimi কমান্ড এড় নাই টাইপ করুন baby", threadID);
-     return api.sendMessage(" কমান্ড এড় নাই টাইপ করুন baby", threadID);
    };
   
    if ((event.body.toLowerCase() == "ওই কিরে") || (event.body.toLowerCase() == "oi keray") ||(event.body.toLowerCase() == "...") || (event.body.toLowerCase() == "...")) {
@@ -100,7 +99,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("খবরদার কেউ এই নাম দরে ডাক দিবানা এটা আমার বস ATICK এর বউ এর নাম..!😠🥰⛏️", threadID);
    };
   
-  if ((event.body.toLowerCase() == "mim") || (event.body.toLowerCase() == "Mim")) {
+  if ((event.body.toLowerCase() == "@Nusrat Fariya") || (event.body.toLowerCase() == "Mim")) {
      return api.sendMessage("খবরদার কেউ এই নাম দরে ডাক দিবানা এটা আমার বস ATICK এর বউ এর নাম..!😠🥰⛏️", threadID);
    };
 
