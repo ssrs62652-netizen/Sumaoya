@@ -77,7 +77,10 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
    if ((event.body.toLowerCase() == "ai") || (event.body.toLowerCase() == "Ai")) {
      return api.sendMessage("সোনা বন্ধু তুই আমারে ভোঁদা দাও দিয়া কাইট্টা লাহ্..!😞", threadID);
    };
-
+  
+   if ((event.body.toLowerCase() == "🙂🫶") || (event.body.toLowerCase() == "🙄🙄🙄") || (event.body.toLowerCase() == "🙄🙄")) {
+     return api.sendMessage("খেয়ে দিও' তাও`ছেড়ে দিও না.!🥹🫳", threadID);
+   };
   
    if ((event.body.toLowerCase() == "chup") || (event.body.toLowerCase() == "stop") || (event.body.toLowerCase() == "চুপ কর") || (event.body.toLowerCase() == "chup kor")) {
      return api.sendMessage("আপনার নুনুতে কি তিল আছে🙂💦", " ২ মিনিট সুখের জন্যে__!!!২ জিবি শেষ করে ফেললাম__!!!🙂🤝", threadID);
@@ -87,7 +90,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("️- ওয়ালাইকুমুস-সালাম-!!🖤", threadID);
    };
 
-   if ((event.body.toLowerCase() == "Sala Ami Tor Boss") || (event.body.toLowerCase() == "Sala ami ullas") || (event.body.toLowerCase() == "Cup sala ami ATICK") || (event.body.toLowerCase() == "madari")) {
+   if ((event.body.toLowerCase() == "Sala Ami Tor Boss") || (event.body.toLowerCase() == "Sala ami Atick") || (event.body.toLowerCase() == "Cup sala ami ATICK") || (event.body.toLowerCase() == "madari")) {
      return api.sendMessage("সরি বস মাফ করে দেন আর এমন ভুল হবে না🥺🙏", threadID);
    };
 
