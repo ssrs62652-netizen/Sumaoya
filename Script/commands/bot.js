@@ -34,7 +34,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
   
    if ((event.body.toLowerCase() == "ki") || (event.body.toLowerCase() == "re")) {
      return api.sendMessage("simsimi কমান্ড এড় নাই টাইপ করুন baby", threadID);
-     return api.sendMessage("simsimi কমান্ড এড় নাই টাইপ করুন baby", threadID);
+     return api.sendMessage(" কমান্ড এড় নাই টাইপ করুন baby", threadID);
    };
   
    if ((event.body.toLowerCase() == "ওই কিরে") || (event.body.toLowerCase() == "oi keray") ||(event.body.toLowerCase() == "...") || (event.body.toLowerCase() == "...")) {
