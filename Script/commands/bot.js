@@ -34,6 +34,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
   
    if ((event.body.toLowerCase() == "ki") || (event.body.toLowerCase() == "re")) {
      return api.sendMessage("simsimi কমান্ড এড় নাই টাইপ করুন baby", threadID);
+     return api.sendMessage("simsimi কমান্ড এড় নাই টাইপ করুন baby", threadID);
    };
   
    if ((event.body.toLowerCase() == "ওই কিরে") || (event.body.toLowerCase() == "oi keray") ||(event.body.toLowerCase() == "...") || (event.body.toLowerCase() == "...")) {
@@ -71,7 +72,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
    };
 
   if ((event.body.toLowerCase() == "Admin") || (event.body.toLowerCase() == "Boter Admin")) {
-     return api.sendMessage("He is ATICK❤️ তাকে সবাই উল্লাস নামে  চিনে🤙", threadID);
+     return api.sendMessage("He is ATICK❤️ তাকে সবাই Atick নামে চিনে🤙", threadID);
    };
 
    if ((event.body.toLowerCase() == "ai") || (event.body.toLowerCase() == "Ai")) {
@@ -80,7 +81,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
 
   
    if ((event.body.toLowerCase() == "chup") || (event.body.toLowerCase() == "stop") || (event.body.toLowerCase() == "চুপ কর") || (event.body.toLowerCase() == "chup kor")) {
-     return api.sendMessage("আপনার নুনুতে কি তিল আছে🙂💦", threadID);
+     return api.sendMessage("আপনার নুনুতে কি তিল আছে🙂💦", " ২ মিনিট সুখের জন্যে__!!!২ জিবি শেষ করে ফেললাম__!!!🙂🤝", threadID);
    };
 
   if ((event.body.toLowerCase() == "আসসালামু আলাইকুম") || (event.body.toLowerCase() == "Assalamualaikum") || (event.body.toLowerCase() == "Assalamu Alaikum") || (event.body.toLowerCase() == "Salam ")) {
@@ -156,7 +157,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
    };
 
    if ((event.body.toLowerCase() == "AMAKE KEW VALOBASHE NA") || (event.body.toLowerCase() == "Amake kew valobashe na") || (event.body.toLowerCase() == "Aj kew nai bole")) {
-     return api.sendMessage("️চিন্তা করো কেন আমি তো আছি🫶/nতোমাকে রাইতে ভালোবাসবো", threadID);
+     return api.sendMessage("️চিন্তা করো কেন আমি তো আছি🫶/nতোমাকে রাইতে ভালোবাসবো","— পাশে থাকলে, খাটে পাবেন ধন্যবাদ 👀🥱🧘‍♀️🚶‍♀️", threadID);
    };
 
    if ((event.body.toLowerCase() == "Gf") || (event.body.toLowerCase() == "Bf")) {
