@@ -1,0 +1,61 @@
+const fs = require("fs-extra");
+const moment = require("moment-timezone");
+
+let cachedData = null;
+
+// একবার load করা এবং প্রতি 1 মিনিটে refresh করা
+async function loadReplies() {
+  try {
+    cachedData = await fs.readJson("./replies.json");
+    console.log("[BOT] Replies loaded successfully!");
+  } catch (err) {
+    console.error("[BOT] Failed to load replies:", err);
+  }
+  setTimeout(loadReplies, 60 * 1000); // প্রতি 1 মিনিটে refresh
+}
+
+// শুরুতে load করা
+loadReplies();
+
+module.exports.handleEvent = async function({ api, event, Users }) {
+  const { threadID, senderID, body } = event;
+  if (!body || !cachedData) return;
+
+  const name = await Users.getNameUser(senderID);
+  const lowerBody = body.toLowerCase();
+
+  // Random reply
+  const randomReplies = cachedData.randomReplies || [];
+  const keywordResponses = cachedData.keywordResponses || {};
+  const rand = randomReplies[Math.floor(Math.random() * randomReplies.length)];
+
+  // Logging (optional)
+  console.log(`[BOT] ${senderID} -> ${body}`);
+
+  // Keyword check (exact match)
+  for (let key in keywordResponses) {
+    if (lowerBody === key) {
+      return api.sendMessage(keywordResponses[key], threadID);
+    }
+  }
+
+  // /bot কমান্ড handle
+  if (lowerBody.startsWith("/bot")) {
+    return api.sendMessage(`${name}, ${rand}`, threadID);
+  }
+};
+
+{
+  "randomReplies": [
+    "বেশি bot Bot করলে leave নিবো কিন্তু😒😒",
+    "শুনবো না😼তুমি আমাকে প্রেম করাই দাও নাই🥺পচা তুমি🥺",
+    "আমি আবাল দের সাথে কথা বলি না,ok😒",
+    "এতো ডেকো না,প্রেম এ পরে যাবো তো🙈",
+    "Bolo Babu, তুমি কি আমাকে ভালোবাসো? 🙈💋"
+  ],
+  "keywordResponses": {
+    "miss you": "আমি তোমাকে রাইতে মিস খাই🥹🤖👅/👅-✘  🎀 🍒:))",
+    "😘": "কিস দিস না তোর মুখে দূর গন্ধ কয়দিন ধরে দাঁত ব্রাশ করিস নাই🤬",
+    "help": "type /help"
+  }
+}
