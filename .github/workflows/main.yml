@@ -1,26 +1,44 @@
-name: Node.js CI
+name: AI Auto Reply Bot
 
 on:
-  workflow_dispatch:
-  
+  workflow_dispatch: # ম্যানুয়ালি চালাতে পারবা
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-
-
+  ai-reply:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm start
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openai
+
+      - name: Run AI reply script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python bot.pyimport openai
+
+openai.api_key = "<YOUR_API_KEY>"
+
+def ask_ai(question):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # চাইলে gpt-4 বা gpt-5 ব্যবহার করো
+        messages=[{"role": "user", "content": question}]
+    )
+    return response.choices[0].message.content
+
+if __name__ == "__main__":
+    question = "তুমি কে?"  # এখানে চাইলে ইনপুট API/webhook থেকে আসবে
+    print("Q:", question)
+    print("AI Reply:", ask_ai(question))
